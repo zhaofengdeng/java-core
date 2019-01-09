@@ -1,3 +1,4 @@
+package java;
 /**
  * 类主要做什么的
  * @author admin

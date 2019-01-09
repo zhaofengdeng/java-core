@@ -7,6 +7,7 @@ import io.ebean.SqlRow;
 
 
 public class EbeanError {
+	
 	/**
 	 * 错误 问题：
 	 * 1.id为空处理
