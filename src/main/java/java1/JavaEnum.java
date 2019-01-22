@@ -1,4 +1,8 @@
 package java1;
+
+import java.util.EnumMap;
+import java.util.EnumSet;
+
 /**
  * java枚举学习
  *一：使用场景：
@@ -13,9 +17,49 @@ package java1;
  * 
  */
 /**
- * 一：策略枚举，strategy enum 
- * 参考：StrategyEnum
+ * 一：策略枚举，strategy enum 参考：StrategyEnum 
+ * 二：EnumSet
+ * EnumSet比HashSet更快,比如HashSet耗费9ms，EnumSet耗费4ms 
+ * 三：enumMap
  */
 public class JavaEnum {
+	public static void main(String[] args) {
+		enumMapUse();
+	}
+	public void enumSetUse() {
+		// 创建一个EnumSet集合，集合元素就是枚举类的全部枚举值
+		EnumSet<MakeInvoiceType> enumSet = EnumSet.allOf(MakeInvoiceType.class);
+		System.out.println(enumSet);
+		// 创建一个EnumSet空集合，指定其集合元素是Season类的枚举值
+		EnumSet es2 = EnumSet.noneOf(MakeInvoiceType.class);
+		es2.add(MakeInvoiceType.BREAK_UP);
+	}
+	public static void enumMapUse() {
+		EnumMap enumMap = new EnumMap(MakeInvoiceType.class);
+		enumMap.put(MakeInvoiceType.BREAK_UP, "小荷才露尖尖角");
+		enumMap.put(MakeInvoiceType.DIRECTLY, "满园春色关不住");
+		System.out.println(enumMap);
 
+	}
+	public static enum MakeInvoiceType {
+		/**
+		 * 未开票
+		 */
+		DIRECTLY(1, "未开票"),
+		/**
+		 * 开票中
+		 */
+		BREAK_UP(2, "开票中"),
+		/**
+		 * 退票中
+		 */
+		SPECIAL(3, "退票中");
+		public int value;
+		public String name;
+
+		MakeInvoiceType(int v, String n) {
+			this.value = v;
+			this.name = n;
+		}
+	}
 }
