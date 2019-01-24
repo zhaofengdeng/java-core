@@ -18,9 +18,9 @@ import java.util.EnumSet;
  */
 /**
  * 一：策略枚举，strategy enum 参考：StrategyEnum 
- * 二：EnumSet
+ * 二：EnumSet代替位域
  * EnumSet比HashSet更快,比如HashSet耗费9ms，EnumSet耗费4ms 
- * 三：enumMap
+ * 三：enumMap 代替序数索引
  */
 public class JavaEnum {
 	public static void main(String[] args) {
