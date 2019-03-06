@@ -35,8 +35,8 @@ public class EbeanUse {
 		el.in("id", list);
 		
 		//in使用sql
-		ExpressionList<UserDetail> elIn = Ebean.find(UserDetail.class).select("userId").where().eq("remark", "O2活动");
-		el.in("id", elIn);
+		Query<UserDetail> queryin = Ebean.find(UserDetail.class).select("userId").where().eq("remark", "O2活动").query();
+		el.in("id", queryin);
 		//分页
 		Query<User> query = el.setFirstRow(10).setMaxRows(15);
 		return query.findList();
